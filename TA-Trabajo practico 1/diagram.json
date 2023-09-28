@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 56.7, "left": -30.53, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 28.5,
+      "left": 283.78,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -9.42, "left": 144.27, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 228.46, "left": 195.48, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 94.97,
+      "left": 340.33,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 139.43, "left": 302.5, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 195.02, "left": 335.29, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 35.23,
+      "left": -145.07,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 15.6,
+      "left": -197.8,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -93.24,
+      "left": -33.76,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "btn1:2.l", "esp:GND.1", "green", [ "h0.68", "v167.34" ] ],
+    [ "btn1:1.l", "esp:D2", "orange", [ "h-13.97", "v10.56" ] ],
+    [ "pot1:VCC", "esp:TX0", "red", [ "v0" ] ],
+    [ "pot1:SIG", "esp:D34", "green", [ "v14.48", "h-94.02", "v-48.19", "h-165.34", "v55.67" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "relay1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "relay1:GND", "esp:GND.2", "gold", [ "v-28.67", "h-221.01" ] ],
+    [ "relay1:IN", "esp:D14", "green", [ "h-273.76", "v-90.16" ] ],
+    [ "led1:C", "gnd1:GND", "orange", [ "v0" ] ],
+    [ "led1:A", "relay1:NO", "green", [ "v0" ] ],
+    [ "relay1:COM", "vcc1:VCC", "magenta", [ "h0" ] ],
+    [ "led2:A", "esp:D12", "blue", [ "v0" ] ],
+    [ "led2:C", "esp:GND.2", "black", [ "v0" ] ],
+    [ "led3:A", "esp:D13", "red", [ "v0" ] ],
+    [ "led3:C", "esp:GND.2", "#8f4814", [ "v0" ] ],
+    [ "esp:GND.2", "esp:GND.1", "black", [ "h0" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "h-85.19", "v292.48" ] ],
+    [ "oled1:VCC", "esp:VIN", "red", [ "h-100.25", "v301.98" ] ],
+    [ "oled1:SCL", "esp:D22", "green", [ "h68.61", "v177.48" ] ],
+    [ "oled1:SDA", "esp:D21", "green", [ "h71.42", "v206.38" ] ]
+  ],
+  "dependencies": {}
+}

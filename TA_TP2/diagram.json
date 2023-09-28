@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Yami Yarbouh",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -45.52,
+      "left": -153.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -81.3, "left": -246.87, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -117.46, "left": 181.57, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 60.13,
+      "left": -298.41,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -137.52,
+      "left": 13.52,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -152.34,
+      "left": -279.39,
+      "attrs": { "color": "limegreen" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "h273.03", "v187.4" ] ],
+    [ "oled1:VCC", "esp:VIN", "red", [ "h-54.42", "v196.9" ] ],
+    [ "oled1:SDA", "esp:D21", "green", [ "h226.3", "v101.96" ] ],
+    [ "oled1:SCL", "esp:D22", "blue", [ "h223.47", "v73.06" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:D34", "green", [ "v0" ] ],
+    [ "pot1:VCC", "esp:TX0", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D26", "green", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "led1:A", "esp:D2", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "led2:A", "esp:D5", "green", [ "v0" ] ],
+    [ "led2:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "led3:A", "esp:D33", "green", [ "v0" ] ],
+    [ "led3:C", "esp:GND.2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
