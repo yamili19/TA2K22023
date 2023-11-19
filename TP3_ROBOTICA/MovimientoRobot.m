@@ -1,4 +1,4 @@
-function MovimientoRobot(q)
+function MovimientoRobot(q, Z)
 
 %% Articulaciones
 q1 = q(:, 1);
@@ -25,7 +25,7 @@ hold on;
 for i = 1:length(q1)
     x1 = [0 l1 * cosd(q1(i)) l1 * cosd(q1(i)) + l2 * cosd(q1(i) + q2(i)) l1 * cosd(q1(i)) + l2 * cosd(q1(i) + q2(i)) + l3 * cosd(q1(i) + q2(i) + q3(i))];
     y1 = [0 l1 * sind(q1(i)) l1 * sind(q1(i)) + l2 * sind(q1(i) + q2(i)) l1 * sind(q1(i)) + l2 * sind(q1(i) + q2(i)) + l3 * sind(q1(i) + q2(i) + q3(i))];
-    z1 = [0.5 0.5 0.5 0.5];  % Ajusta esta línea si hay una componente z en tu robot
+    z1 = [Z Z Z Z];  % Ajusta esta línea si hay una componente z en tu robot
 
     set(h, 'XData', x1, 'YData', y1, 'ZData', z1, 'linewidth', 3);
     plot3(x1(end), y1(end), z1(end), 'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r');
